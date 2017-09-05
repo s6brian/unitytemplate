@@ -5,14 +5,14 @@ using UnityEngine.Assertions;
 
 public class GameManager : MonoBehaviour
 {
-	private readonly int BOOT_STATE_ID    = Animator.StringToHash("BootSMBehaviour");
-	private readonly int LOAD_STATE_ID    = Animator.StringToHash("LoadAssetsSMBehaviour");
-	private readonly int TITLE_STATE_ID   = Animator.StringToHash("TitleSMBehaviour");
-	private readonly int GAME_STATE_ID    = Animator.StringToHash("GameSMBehaviour");
-	private readonly int ENDGAME_STATE_ID = Animator.StringToHash("EndGameSMBehaviour");
+	// public readonly int BOOT_STATE_ID    = Animator.StringToHash("BootSMBehaviour");
+	// public readonly int LOAD_STATE_ID    = Animator.StringToHash("LoadAssetsSMBehaviour");
+	// public readonly int TITLE_STATE_ID   = Animator.StringToHash("TitleSMBehaviour");
+	// public readonly int GAME_STATE_ID    = Animator.StringToHash("GameSMBehaviour");
+	// public readonly int ENDGAME_STATE_ID = Animator.StringToHash("EndGameSMBehaviour");
 
 	private Animator m_animator;
-	private IStateMachine[] m_stateMachineArray;
+	// private IStateMachine[] m_stateMachineArray;
 
 	void Awake()
 	{
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 	void Start ()
 	{
 		// add StateMachineBehaviour here
-		m_stateMachineArray = new IStateMachine[]
+		IStateMachine[] stateMachineArray = new IStateMachine[]
 		{
 			m_animator.GetBehaviour<BootSMBehaviour>(),
 			m_animator.GetBehaviour<LoadAssetsSMBehaviour>(),
@@ -32,10 +32,10 @@ public class GameManager : MonoBehaviour
 			m_animator.GetBehaviour<EndGameSMBehaviour>()
 		};
 
-		for(int idx = m_stateMachineArray.Length-1; idx >= 0; --idx)
+		for(int idx = stateMachineArray.Length-1; idx >= 0; --idx)
 		{
-			Assert.IsNotNull(m_stateMachineArray[idx], "State Machine [" + idx + "] does not exist!");
-			m_stateMachineArray[idx].SetGameManager(this);
+			Assert.IsNotNull(stateMachineArray[idx], "State Machine [" + idx + "] does not exist!");
+			stateMachineArray[idx].SetGameManager(this);
 		}
 	}
 
@@ -51,6 +51,6 @@ public class GameManager : MonoBehaviour
 
 	public void OnStateExit()
 	{
-
+		
 	}
 }

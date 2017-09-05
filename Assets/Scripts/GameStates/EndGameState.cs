@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EndGameState : State
 {
-	
+	public readonly int ID = Animator.StringToHash("EndGameSMBehaviour");
 }

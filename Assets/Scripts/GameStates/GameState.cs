@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameState : State
 {
-	
+	public readonly int ID = Animator.StringToHash("GameSMBehaviour");
 }

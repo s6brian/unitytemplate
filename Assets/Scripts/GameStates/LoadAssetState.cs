@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class LoadAssetState : State
 {
-	
+	public readonly int ID = Animator.StringToHash("LoadAssetsSMBehaviour");
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TitleState : State
 {
-	
+	public readonly int ID   = Animator.StringToHash("TitleSMBehaviour");
 }
